@@ -1,0 +1,10 @@
+name: NewsPortals
+form: $/programmerlab/nportal/models/newsportal/fields.yaml
+modelClass: ProgrammerLab\Nportal\Models\NewsPortal
+defaultRedirect: programmerlab/nportal/newsportals
+create:
+    redirect: 'programmerlab/nportal/newsportals/update/:id'
+    redirectClose: programmerlab/nportal/newsportals
+update:
+    redirect: programmerlab/nportal/newsportals
+    redirectClose: programmerlab/nportal/newsportals

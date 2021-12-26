@@ -1,0 +1,10 @@
+name: PdfPublication
+form: $/programmerlab/nportal/models/pdfmodel/fields.yaml
+modelClass: ProgrammerLab\Nportal\Models\PdfModel
+defaultRedirect: programmerlab/nportal/pdfpublication
+create:
+    redirect: 'programmerlab/nportal/pdfpublication/update/:id'
+    redirectClose: programmerlab/nportal/pdfpublication
+update:
+    redirect: programmerlab/nportal/pdfpublication
+    redirectClose: programmerlab/nportal/pdfpublication

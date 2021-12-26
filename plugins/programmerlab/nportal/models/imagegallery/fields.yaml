@@ -1,0 +1,22 @@
+fields:
+    title:
+        label: Title
+        oc.commentPosition: ''
+        span: left
+        type: text
+    image:
+        label: Image
+        oc.commentPosition: ''
+        mode: image
+        span: left
+        required: 1
+        type: mediafinder
+    status:
+        label: Status
+        span: left
+        oc.commentPosition: ''
+        options:
+            published: Published
+            unpublished: unpublished
+            draft: Draft
+        type: dropdown

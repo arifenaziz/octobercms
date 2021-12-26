@@ -1,0 +1,119 @@
+@media (min-width: 320px) and (max-width: 479px){
+  .container{
+    padding: 0;
+  }
+  #pre-header.bk-white{
+    padding: 0;
+  }
+  #pre-header .date.sm-dt {
+    font-size: .9em;
+    text-align: center;
+    padding-bottom: 5px;
+  }
+  #pre-header .sbtn-sm{
+    height: 34px;
+  }
+  #pre-header .social-button{
+    float: left;
+  }
+  .sm-b-margin{
+    margin-bottom: 5px;
+  }
+  .main-nav .navbar-brand > img{
+    width: 170px;
+  }
+  .main-nav .navbar-brand{
+    padding: 7px 25px;
+  }
+  .border-r {
+    border-right: 0;
+  }
+  .main-nav .navbar-default .navbar-toggle .icon-bar {
+      background-color: #fff;
+  }
+  .main-nav .navbar-default .navbar-toggle {
+      border: none;
+      background-color: transparent;
+  }
+  .navbar-nav {
+      margin: 0px 14px;
+  }
+  .header-text {
+      font-size: 1.1em;
+  }
+  .tk-head {
+      font-size: 1em;
+      padding: 0 3px;
+  }
+  .ticker li a {
+    font-size: 1em;
+    margin-top: 2px;
+  }
+  .bk-white-n {
+      border-right: none;
+  }
+  .news-single-box img{
+    width: 100%;
+  }
+  .social-button ui li{
+    float: left;
+  }
+  .social-button .btn-search{
+    margin-top: -46px;
+    border-radius: 0;
+    margin-left: 224px;
+  }
+  .m-sm-t-15{
+    margin-top: 15px;
+  }
+  .affix {
+      top: -5px;
+      width: 100%;
+      z-index: 999;
+  }
+  .img-cption{
+  	position: absolute;
+    bottom: 1px;
+    font-size: .7em;
+    background-color: #000;
+    color: #fff;
+    width: 100%;
+    padding: 10px;
+    opacity: .78;
+    line-height: 1.2em;
+  }
+  /*============================================================================
+  single img
+  ============================================================================*/
+  .single-news-content .fr-fic.fr-dib,
+  .single-news-content .fr-fic.fr-dii{
+    width: 100% !important;
+    height: auto !important;
+  }
+
+
+}
+
+@media (min-width: 480px) and (max-width: 639px){
+
+}
+
+@media (min-width: 640px) and (max-width: 767px){
+
+}
+
+@media (min-width: 768px) and (max-width: 1023px){
+
+}
+
+@media (min-width: 1024px) and (max-width: 1100px){
+
+}
+
+@media (min-width: 1101px) and (max-width: 1280px){
+
+}
+
+@media (min-width: 1281px) and (max-width: 1366px){
+
+}

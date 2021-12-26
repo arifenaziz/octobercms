@@ -1,0 +1,13 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    type:
+        label: Type
+        type: group
+        conditions: type in (:filtered)
+        options:
+            phone: Phone
+            web: Web

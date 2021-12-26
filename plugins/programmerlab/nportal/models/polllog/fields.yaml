@@ -1,0 +1,7 @@
+fields:
+    vote_count:
+        label: 'Count Vote'
+        span: left
+        oc.commentPosition: ''
+        required: 0
+        type: number

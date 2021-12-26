@@ -1,0 +1,10 @@
+name: Ads
+form: $/programmerlab/nportal/models/ad/fields.yaml
+modelClass: ProgrammerLab\Nportal\Models\Ad
+defaultRedirect: programmerlab/nportal/ads
+create:
+    redirect: 'programmerlab/nportal/ads/update/:id'
+    redirectClose: programmerlab/nportal/ads
+update:
+    redirect: programmerlab/nportal/ads
+    redirectClose: programmerlab/nportal/ads

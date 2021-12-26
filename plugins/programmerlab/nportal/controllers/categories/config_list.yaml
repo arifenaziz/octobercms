@@ -1,0 +1,12 @@
+title: Categories
+modelClass: ProgrammerLab\Nportal\Models\Category
+list: $/programmerlab/nportal/models/category/columns.yaml
+recordUrl: 'programmerlab/nportal/categories/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: '25'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

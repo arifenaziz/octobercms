@@ -1,0 +1,10 @@
+name: VideoGalleries
+form: $/programmerlab/nportal/models/videogallery/fields.yaml
+modelClass: ProgrammerLab\Nportal\Models\VideoGallery
+defaultRedirect: programmerlab/nportal/videogalleries
+create:
+    redirect: 'programmerlab/nportal/videogalleries/update/:id'
+    redirectClose: programmerlab/nportal/videogalleries
+update:
+    redirect: programmerlab/nportal/videogalleries
+    redirectClose: programmerlab/nportal/videogalleries

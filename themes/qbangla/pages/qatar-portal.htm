@@ -1,0 +1,122 @@
+title = "Qatar News Portal"
+url = "/qatar-portal"
+layout = "default"
+description = "Qatar News Portal Page"
+is_hidden = 0
+==
+<?php
+use ProgrammerLab\Nportal\Models\NewsPortal;
+function onStart(){
+  //bangla =====================================================================
+  $this['qnPortals'] = NewsPortal::orderBy('created_at', 'asc')
+  ->where('country', 'qatar')->where('type', 'qatar_news_portal')->get();
+
+  //tv ====================================================================
+  $this['tvs'] = NewsPortal::orderBy('created_at', 'asc')
+  ->where('country', 'qatar')->where('type', 'tv')->get();
+
+  //radio ====================================================================
+  $this['radios'] = NewsPortal::orderBy('created_at', 'asc')
+  ->where('country', 'qatar')->where('type', 'radio')->get();
+}
+
+?>
+==
+
+<div class="row">
+  <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+  <!-- bangla -->
+    <!-- bangla header -->
+    {% if qnPortals[0] %}
+    <div class="row bk-white-n m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="box">
+            <div class="box-header">
+                <h4>নিউজ পোর্টাল</h4>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- ./bangla header -->
+
+    <div class="row">
+        {% for qn in qnPortals %}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-t-5 bk-white-n">
+          <div class="box-nportal">
+              <a href="{{ qn.link }}" target="_blank">
+                <img class="img-responsive" src="{{ qn.feature_img | media }}" alt="{{ qn.name }}">
+                <h4>{{ qn.name }}</h4>
+              </a>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+  <!-- ./bangla -->
+
+  <!-- Tv -->
+    <!-- Tv header -->
+    {% if tvs[0] %}
+    <div class="row bk-white-n m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="box">
+            <div class="box-header">
+                <h4>টিভি চ্যানেল </h4>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- ./Tv header -->
+
+    <div class="row m-t-5">
+        {% for tv in tvs %}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-t-5 bk-white-n">
+          <div class="box-nportal">
+              <a href="{{ tv.link }}" target="_blank">
+                <img class="img-responsive" src="{{ tv.feature_img | media }}" alt="{{ tv.name }}">
+                <h4>{{ tv.name }}</h4>
+              </a>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+  <!-- ./Tv -->
+
+  <!-- Tv -->
+    <!-- Tv header -->
+    {% if radios[0] %}
+    <div class="row bk-white-n m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="box">
+            <div class="box-header">
+                <h4>রেডিও</h4>
+            </div>
+          </div>
+        </div>
+    </div>
+    {% endif %}
+    <!-- ./Tv header -->
+
+    <div class="row">
+        {% for rd in radios %}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 m-t-5 bk-white-n">
+          <div class="box-nportal">
+              <a href="{{ rd.link }}" target="_blank">
+                <img class="img-responsive" src="{{ rd.feature_img | media }}" alt="{{ rd.name }}">
+                <h4>{{ rd.name }}</h4>
+              </a>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+  <!-- ./Tv -->
+
+  </div>
+
+  <!-- sidebar -->
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+
+  </div>
+  <!-- ./sidebar -->
+</div>

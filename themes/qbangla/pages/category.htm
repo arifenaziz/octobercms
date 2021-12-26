@@ -1,0 +1,227 @@
+title = "Category"
+url = "/category/:cat_id"
+layout = "default"
+is_hidden = 0
+==
+<?php
+use ProgrammerLab\Nportal\Models\Article;
+use ProgrammerLab\Nportal\Models\Category;
+use ProgrammerLab\Nportal\Models\Ad;
+function onStart(){
+  $catID = $this->param('cat_id');
+	$category = Category::find($catID);
+  $this['cat'] = $category;
+
+  $this['articles'] = $category->articles()->where('status', 'published')->orderBy('published_at', 'desc')->select('id','excerpt', 'short_title' , 'feature_img')->paginate(20);
+  // latest news ===============================================================
+  $this['latestNews'] = Article::getLatestNews(10);
+  // top news ==================================================================
+  $this['topNews'] = Article::getTopNews(10);
+
+  // advertisement==============================================================
+  $this['catAd1'] = Ad::where('is_cat_1', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['catAd2'] = Ad::where('is_cat_2', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['catSAd1'] = Ad::where('is_cat_sidebar_1', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['catSAd2'] = Ad::where('is_cat_sidebar_2', 1)->orderBy('created_at', 'desc')->take(1)->get();
+}
+?>
+==
+
+<div class="row">
+    <!-- Main Content -->
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+        <!-- Adnetwork -->
+        <div class="row m-t-5">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-left: 0;padding-right: 0;">
+              <div class="box-ad text-center">
+                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                <ins class="adsbygoogle"
+                     style="display:block"
+                     data-ad-format="autorelaxed"
+                     data-ad-client="ca-pub-3244995337542395"
+                     data-ad-slot="3910419451"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+              </div>
+            </div>
+        </div>
+        <!-- ./adnetwork -->
+
+        <!-- advertisement -->
+        {% if catAd1[0] %}
+        <div class="row bk-white-n m-t-5">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-left: 0;padding-right: 0;">
+              <div class="box-ad text-center">
+                <a href="{{ catAd1[0].url }}">
+                  <img class="img-responsive" src="{{ catAd1[0].ad_img | media }}" alt="Advertisement" style="width: 870px; height: 80px;">
+                </a>
+              </div>
+            </div>
+        </div>
+        {% endif %}
+        <!-- advertisement -->
+        <!-- page header -->
+        <div class="row bk-white-n m-t-5">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="box">
+                <div class="box-header">
+                    <h4>{{ cat.display_name }}</h4>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- ./page header -->
+
+        <!-- main content -->
+        <div class="row m-t-5">
+            {% for ar in articles %}
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 m-t-5 bk-white-n">
+                <div class="cat-news-header">
+                    <a href="{{ url('/news', ar.id) }}">
+                        <h3>{{ ar.short_title }}</h3>
+                    </a>
+                    <div class="cat-date">
+                      <i class="fa fa-clock-o" aria-hidden="true"></i> <span>{{ ar.getBanglaDate() }}</span>
+                    </div>
+                </div>
+
+                <div class="row cat-news-content">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <a href="{{ url('/news', ar.id) }}">
+                            <img class="img-responsive" src="{{ ar.feature_img | media | resize(122,75, { mode: 'crop', quality: '80' }) }}" alt="{{ ar.short_title }}">
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                        <a href="{{ url('/news', ar.id) }}">
+                            <p class="cat-news-content">
+                                {{ ar.excerpt }}
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- ./main content -->
+
+        <!-- pagination -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <nav aria-label="Page navigation pull-right">
+                  {{ articles.render|raw }}
+                </nav>
+            </div>
+        </div>
+        <!-- pagination -->
+
+        <!-- advertisement -->
+        {% if catAd2[0] %}
+        <div class="row bk-white-n m-t-5">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-left: 0;padding-right: 0;">
+              <div class="box-ad text-center">
+                <a href="{{ catAd2[0].url }}">
+                  <img class="img-responsive" src="{{ catAd2[0].ad_img | media }}" alt="Advertisement" style="width: 870px; height: 80px;">
+                </a>
+              </div>
+            </div>
+        </div>
+        {% endif %}
+        <!-- advertisement -->
+
+    </div>
+    <!-- ./Main Content -->
+
+    <!-- sidebar -->
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+      <!-- ---------Ad code------------ -->
+      <div class="m-t-5">
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-format="autorelaxed"
+             data-ad-client="ca-pub-3244995337542395"
+             data-ad-slot="6732379137"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+      </div>      
+      <!-- ---------Ad code------------ -->
+
+      <!-- advertisement -->
+      {% if catSAd1[0] %}
+      <div class="row bk-white m-t-5">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-left: 0;padding-right: 0;">
+            <div class="box-ad text-center">
+              <a href="{{ catSAd1[0].url }}">
+                <img class="img-responsive" src="{{ catSAd1[0].ad_img | media }}" alt="Advertisement" style="width: 282px; height: 80px;">
+              </a>
+            </div>
+          </div>
+      </div>
+      {% endif %}
+      <!-- advertisement -->
+      <!-- latest news -->
+      <div class="row m-t-5 ls-news">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white">
+          <div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+               <li role="presentation" class="active">
+                 <a href="#latest" aria-controls="home" role="tab" data-toggle="tab">সর্বশেষ</a>
+               </li>
+               <li role="presentation">
+                 <a href="#most-readed" aria-controls="most-readed" role="tab" data-toggle="tab">আলোচিত</a>
+               </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+               <div role="tabpanel" class="tab-pane active" id="latest">
+                 <div class="box">
+                   <div class="box-content">
+                     <div class="list-group">
+                        {% for ls in latestNews %}
+                         <a href="{{ url('/news', ls.id) }}" title="{{ ls.title }}" class="list-group-item">
+                           {{ ls.short_title }}
+                         </a>
+                        {% endfor %}
+                       </div>
+                   </div>
+                 </div>
+               </div>
+               <div role="tabpanel" class="tab-pane" id="most-readed">
+                 <div class="box">
+                   <div class="box-content">
+                     <div class="list-group">
+                       {% for tn in topNews %}
+                        <a href="{{ url('/news', tn.id) }}" title="{{ tn.title }}" class="list-group-item">
+                          {{ tn.short_title }}
+                        </a>
+                       {% endfor %}
+                       </div>
+                   </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ./latest news -->
+
+      <!-- advertisement -->
+      {% if catSAd2[0] %}
+      <div class="row bk-white m-t-5">
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="padding-left: 0;padding-right: 0;">
+            <div class="box-ad text-center">
+              <a href="{{ catSAd2[0].url }}">
+                <img class="img-responsive" src="{{ catSAd2[0].ad_img | media }}" alt="Advertisement" style="width: 282px; height: 250px;">
+              </a>
+            </div>
+          </div>
+      </div>
+      {% endif %}
+      <!-- advertisement -->
+    </div>
+    <!-- ./sidebar -->
+</div>

@@ -1,0 +1,47 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+        sortable: true
+        width: 10px
+    title:
+        label: Title
+        type: text
+        searchable: true
+        sortable: true
+    status:
+        label: Status
+        type: text
+        searchable: true
+        sortable: true
+        width: 20px
+    created_by_col:
+        label: 'Created By'
+        type: text
+        searchable: false
+        sortable: false
+        path: ~/plugins/programmerlab/nportal/models/article/_created_by_column.htm
+        width: 150px
+    updated_by_col:
+        label: 'Updated By'
+        type: text
+        searchable: false
+        sortable: false
+        path: ~/plugins/programmerlab/nportal/models/article/_created_by_column.htm
+        width: 150px
+    created_at:
+        label: 'Created At'
+        type: date
+        sortable: true
+        width: 150px
+    updated_at:
+        label: 'Updated At'
+        type: date
+        sortable: true
+        width: 150px
+    hit_count:
+        label: 'News Hits'
+        type: number
+        sortable: true
+        width: 30px

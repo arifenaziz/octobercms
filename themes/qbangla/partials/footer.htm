@@ -1,0 +1,58 @@
+==
+<?php
+use ProgrammerLab\Nportal\Models\Settings;
+function onStart(){
+  //Logo =======================================================================
+  $this['footerLogo'] = Settings::get('footer_logo');
+  // $this['facebook_url'] = Settings::get('facebook');
+}
+?>
+==
+<div class="row m-t-5 bk-blue footer">
+  <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+    <div class="logo" style="height: 65px;padding-top: 20px;">
+      <a href="{{ url('/') }}">
+        <img class="img-responsive" src="{{ footerLogo ? footerLogo|media : 'assets/images/fn-logo.png' | theme }}" alt="Logo">
+      </a>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 hidden-print">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-sm-t-15">
+        <div class="social-button pull-right">
+          <ul>
+            <li class="hidden-xs social-bn"><a href="https://www.facebook.com/GBangla2018/"><i class="fa fa-lg fa-facebook" aria-hidden="true"></i></a></li>
+            <!-- <li class="hidden-xs"><a href=""><i class="fa fa-lg fa-twitter" aria-hidden="true"></i></a></li> -->
+        <li class="hidden-xs hidden-sm social-bn"><a href="https://twitter.com/editorgulfbang1"><i class="fa fa-lg fa-twitter" aria-hidden="true"></i></a></li>
+            <li class="hidden-xs social-bn"><a href="https://www.youtube.com/channel/UCC2KWDemBkeUXovPdfO11YA"><i class="fa fa-lg fa-youtube" aria-hidden="true"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <hr style="margin-top:10px;">
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <address>
+          <strong>প্রধান কার্যালয়:</strong> দোহা, কাতার।<br>
+          <p/>This website is associated with <strong>Tamim Raihan MD Golam Hossain </strong> . Alsadd 38, Doha, Qatar</p>
+        </address>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <address>
+          <strong>সার্বিক যোগাযোগ:</strong><br>
+          <abbr title="Email">editor@gulfbangla.com </abbr><br/>
+          <abbr title="Email">editorgulfbangla@gmail.com </abbr>
+          
+        </address>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="row post-footer hidden-print">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <p>কপিরাইট © 2020 www.gulfbangla.com এর সকল স্বত্ব সংরক্ষিত</p>
+  </div>
+</div>

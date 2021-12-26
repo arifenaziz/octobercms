@@ -1,0 +1,37 @@
+fields:
+    name:
+        label: Name
+        oc.commentPosition: ''
+        span: left
+        required: 1
+        type: text
+    link:
+        label: Link
+        oc.commentPosition: ''
+        span: left
+        type: text
+    feature_img:
+        label: 'Portal Logo/Image'
+        oc.commentPosition: ''
+        mode: image
+        span: left
+        type: mediafinder
+    country:
+        label: Country
+        oc.commentPosition: ''
+        options:
+            bangladesh: Bangladesh
+            qatar: Qatar
+        span: left
+        type: dropdown
+    type:
+        label: Type
+        oc.commentPosition: ''
+        options:
+            bangla: 'Bangla News Portal'
+            english: 'English News Portal'
+            qatar_news_portal: 'Qatar News Portal'
+            tv: 'TV Channel'
+            radio: Radio
+        span: left
+        type: dropdown

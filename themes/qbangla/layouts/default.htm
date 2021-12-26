@@ -1,0 +1,143 @@
+description = "A default page layout"
+==
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="google-site-verification" content="JjsSwG_5ypn3bKmRX2w6E4ro032wSY7Z-4KjGqem62E" />
+        <title>{{ this.page.title }} | Gulfbangla</title>
+        <meta name="description" content="{{ this.page.description }}">
+        <meta name="distribution" content="Global">
+        <meta name="title" content="{{ this.page.title }}">
+        <meta name="author" content="Gulfbangla">
+        <meta name="developer" content="PLab">
+        <meta name="robots" content="ALL">
+        <meta name="robots" content="index,follow">
+        <meta name="googlebot" content="index, follow">
+        <meta name="keywords" content="অনলাইন, পত্রিকা, বাংলাদেশ,কাতার,মধ্যপ্রাচ্য,বিশ্ব,সাক্ষাতকার,সংস্কৃতি,বিনোদন,কলাম,
+                                       আজকের পত্রিকা, আন্তর্জাতিক,  শেয়ার বাজার,পরামর্শ, গাইড, শিল্প,প্রয়োজনীয় ওয়েবসাইট,
+                                       কাতারে বাংলাদেশ দূতাবাস,বাংলাদেশ দূতাবাস,বাংলাদেশে কাতারের দূতাবাস,কাতারের দূতাবাস,
+                                       প্রয়োজনীয় ফোন নম্বর,চাকরির বিজ্ঞাপন,বাংলাদেশের পত্র-পত্রিকা,কাতারের পত্র-পত্রিকা,
+                                       কাতারের ভিসা ও পরিচয়পত্র,মতামতা,ছবি গ্যালারী,ছবি,গ্যালারী,ভিডিও গ্যালারী,ভিডিও,
+                                       breaking news, latest news, sports news, entertainment, songbad, bangla songbad,
+                                       khobor, bangla khobor">
+        <link rel="canonical" href="http://gulfbangla.com/">
+        <link href="https://fonts.maateen.me/solaiman-lipi/font.css" rel="stylesheet">
+        
+        <meta name="facebook-domain-verification" content="08ps0fxap23crop9ioatage6xz3o1j" />        
+
+        <!-- Place this tag in your head or just before your close body tag. -->
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+        <link rel="icon" type="image/png" href="{{ 'assets/images/favicon.png'|theme }}" />
+
+        <link href="{{ [
+            'assets/vendor/bootstrap/css/bootstrap.css',
+            'assets/vendor/font-awesome/css/font-awesome.css',
+            'assets/vendor/bknews/breakingNews.css',
+            'assets/css/theme.css',
+            'assets/css/media.css'
+        ]|theme }}" rel="stylesheet">
+
+        <!-- share this -->
+        <!-- <script type="text/javascript" src="//platform-api.sharethis.com/js/sharethis.js#property=592af1e2dc069f001260a46d&product=inline-share-buttons"></script> -->
+
+        <script type='text/javascript' src='//platform-api.sharethis.com/js/sharethis.js#property=5ca65292fb6af900122ed4af&product=inline-share-buttons' async='async'></script>
+        <!-- ./share this -->
+
+
+<!-- Google Tag Manager -->
+<!-- <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-NRGHXWD');</script> -->
+<!-- End Google Tag Manager -->
+
+            <script async src="https://www.googletagmanager.com/gtag/js?id=UA-108908928-1"></script>
+            <script>
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+            
+              gtag('config', 'UA-108908928-1');
+            </script>
+
+        
+    
+
+        {% styles %}
+
+        <!-- Head scripts/style driven from page -->
+        {% placeholder head %}
+    </head>
+
+    <body>      
+
+        <!-- facebook sdk -->
+          {% partial "fb-sdk" %}
+        <!-- ./facebook sdk -->
+        <!-- google -->
+        {% partial "google-tracking" %}
+        <!-- ./google -->
+
+
+        <div class="container-fluid">
+            <div class="container">
+
+                <!-- pre-header -->
+                <section>
+                    {% partial "header-pre" %}
+                </section>
+                <!-- ./pre-header -->
+
+                <!-- header-logo -->
+                <section>
+                    {% partial "header-logo" %}
+                </section>
+                <!-- header-logo -->
+
+                <!-- ticker -->
+                <section>
+                    {% partial "ticker-2" %}
+                </section>
+                <!-- ticker -->
+
+                <!-- nav -->
+                <section>
+                    {% partial "header-nav" %}
+                </section>
+                <!-- nav -->
+
+                <!-- page section -->
+                <section id="page-">
+                    {% page %}
+                </section>
+                <!-- ./page section -->
+
+                <!-- footer -->
+                <section>
+                    {% partial "footer" %}
+                </section>
+                <!-- footer -->
+
+            </div>
+        </div>
+
+
+
+
+        <!-- Scripts -->
+        <script src="{{ [
+            'assets/vendor/jQuery/jQuery-1.11.1.js',
+            'assets/vendor/bknews/breakingNews.js',
+            'assets/vendor/bootstrap/js/bootstrap.min.js',
+            'assets/js/main.js'
+        ]|theme }}"></script>
+        {% framework extras %}
+        {% scripts %}
+        {% placeholder foot %}
+    </body>
+</html>

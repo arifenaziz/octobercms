@@ -1,0 +1,28 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+        sortable: true
+        path: 10px
+    display_name:
+        label: 'Display name'
+        type: text
+        searchable: true
+        sortable: true
+    slug:
+        label: Slug
+        type: text
+        searchable: true
+        sortable: true
+        path: 250px
+    created_at:
+        label: 'Created At'
+        type: datetime
+        sortable: true
+        path: 300px
+    updated_at:
+        label: 'Updated At'
+        type: datetime
+        sortable: true
+        path: 300px

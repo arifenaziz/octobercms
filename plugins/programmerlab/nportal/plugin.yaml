@@ -1,0 +1,114 @@
+plugin:
+    name: 'programmerlab.nportal::lang.plugin.name'
+    description: 'programmerlab.nportal::lang.plugin.description'
+    author: 'Programmer Lab'
+    icon: oc-icon-newspaper-o
+    homepage: ''
+permissions:
+    gallery_manage:
+        tab: Gallery
+        label: 'Gallery Manage'
+    category_manage:
+        tab: Category
+        label: 'Category Manage'
+    article_manage:
+        tab: Article
+        label: 'Article Manage'
+    advertisement_manage:
+        tab: Advertisement
+        label: 'Advertisement Manage'
+    phone_web_manage:
+        tab: 'Phone Web'
+        label: 'Phone Web Manage'
+    newsportal_manage:
+        tab: 'News Portal'
+        label: 'News Portal Manage'
+    contact_manage:
+        tab: Contact
+        label: 'Contact Manage'
+    sidebar_manage:
+        tab: Sidebar
+        label: 'Sidebar Manage'
+    poll_manage:
+        tab: Poll
+        label: 'Poll Manage'
+    poll_log_manage:
+        tab: 'Poll Log'
+        label: 'Poll Log Manage'
+    pdf_publciation:
+        tab: 'Pdf Publication'
+        label: 'Pdf Publication'
+navigation:
+    main-menu-im-gallery:
+        label: 'Image Gallery'
+        url: programmerlab/nportal/imagegalleries
+        icon: icon-image
+        permissions:
+            - gallery_manage
+    main-menu-video-gallery:
+        label: 'Video Gallery'
+        url: programmerlab/nportal/videogalleries
+        icon: icon-video-camera
+        permissions:
+            - gallery_manage
+    main-menu-category:
+        label: Categories
+        url: programmerlab/nportal/categories
+        icon: icon-sort-amount-desc
+        permissions:
+            - category_manage
+    main-menu-articles:
+        label: Article
+        url: programmerlab/nportal/articles
+        icon: icon-pencil-square-o
+        permissions:
+            - article_manage
+    main-menu-ad:
+        label: Advertisement
+        url: programmerlab/nportal/ads
+        icon: icon-buysellads
+        permissions:
+            - advertisement_manage
+    main-menu-phone-web:
+        label: Phone/Web
+        url: programmerlab/nportal/phoneswebs
+        icon: icon-phone
+        permissions:
+            - phone_web_manage
+    main-menu-newsportal:
+        label: Newsportal
+        url: programmerlab/nportal/newsportals
+        icon: icon-newspaper-o
+        permissions:
+            - newsportal_manage
+    main-menu-contact:
+        label: 'Mail Contact'
+        url: programmerlab/nportal/contacts
+        icon: icon-envelope
+        permissions:
+            - contact_manage
+    main-menu-sidebar:
+        label: 'Sidebar Setting'
+        url: programmerlab/nportal/sidebars
+        icon: icon-align-justify
+        permissions:
+            - sidebar_manage
+    main-menu-polls:
+        label: Poll
+        url: programmerlab/nportal/polls
+        icon: icon-bar-chart-o
+        permissions:
+            - poll_manage
+        sideMenu:
+            side-menu-poll-logs:
+                label: 'Poll Log'
+                url: programmerlab/nportal/polllogs
+                icon: icon-th-large
+                permissions:
+                    - poll_log_manage
+    main-menu-item:
+        label: 'PDF Area'
+        url: programmerlab/nportal/pdfpublication
+        icon: icon-file-pdf-o
+        permissions:
+            - pdf_publciation

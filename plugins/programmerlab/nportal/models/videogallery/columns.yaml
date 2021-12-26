@@ -1,0 +1,36 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+        sortable: true
+    title:
+        label: Title
+        type: text
+        searchable: true
+        sortable: true
+    status:
+        label: Status
+        type: text
+        searchable: true
+        sortable: true
+    created_by_col:
+        label: 'Created By'
+        type: partial
+        searchable: false
+        sortable: false
+        path: ~/plugins/programmerlab/nportal/models/videogallery/_created_by_column.htm
+    updated_by_col:
+        label: 'Updated By'
+        type: partial
+        searchable: false
+        sortable: false
+        path: ~/plugins/programmerlab/nportal/models/videogallery/_updated_by_column.htm
+    created_at:
+        label: 'Created At'
+        type: timesince
+        sortable: true
+    updated_at:
+        label: 'Updated At'
+        type: timesince
+        sortable: true

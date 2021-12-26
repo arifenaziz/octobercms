@@ -1,0 +1,23 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    country:
+        label: Country
+        type: group
+        conditions: country in (:filtered)
+        options:
+            bangladesh: Bangladesh
+            qatar: Qatar
+    type:
+        label: Type
+        type: group
+        conditions: type in (:filtered)
+        options:
+            bangla: 'Bangla News Portal'
+            english: 'English News Portal'
+            qatar_news_portal: 'Qatar News Portal'
+            tv: 'TV Channel'
+            radio: Radio

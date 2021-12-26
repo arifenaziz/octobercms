@@ -1,0 +1,11 @@
+list: $/programmerlab/nportal/models/pdfmodel/columns.yaml
+modelClass: ProgrammerLab\Nportal\Models\PdfModel
+title: PdfPublication
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'programmerlab/nportal/pdfpublication/update/:id'

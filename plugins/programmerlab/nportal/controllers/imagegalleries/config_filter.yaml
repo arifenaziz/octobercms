@@ -1,0 +1,18 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    status:
+        label: Status
+        type: group
+        conditions: status in (:filtered)
+        options:
+            published: Published
+            unpublished: unpublished
+            draft: Draft
+    created_at:
+        label: Date
+        type: daterange
+        conditions: created_at >= ':after' AND created_at <= ':before'

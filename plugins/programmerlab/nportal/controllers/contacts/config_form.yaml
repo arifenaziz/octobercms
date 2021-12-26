@@ -1,0 +1,10 @@
+name: Contacts
+form: $/programmerlab/nportal/models/contact/fields.yaml
+modelClass: ProgrammerLab\Nportal\Models\Contact
+defaultRedirect: programmerlab/nportal/contacts
+create:
+    redirect: 'programmerlab/nportal/contacts/update/:id'
+    redirectClose: programmerlab/nportal/contacts
+update:
+    redirect: programmerlab/nportal/contacts
+    redirectClose: programmerlab/nportal/contacts

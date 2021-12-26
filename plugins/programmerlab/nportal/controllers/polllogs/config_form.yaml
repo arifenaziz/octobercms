@@ -1,0 +1,10 @@
+name: PollLogs
+form: $/programmerlab/nportal/models/polllog/fields.yaml
+modelClass: ProgrammerLab\Nportal\Models\PollLog
+defaultRedirect: programmerlab/nportal/polllogs
+create:
+    redirect: 'programmerlab/nportal/polllogs/update/:id'
+    redirectClose: programmerlab/nportal/polllogs
+update:
+    redirect: programmerlab/nportal/polllogs
+    redirectClose: programmerlab/nportal/polllogs

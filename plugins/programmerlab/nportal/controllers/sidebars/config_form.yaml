@@ -1,0 +1,10 @@
+name: Sidebars
+form: $/programmerlab/nportal/models/sidebar/fields.yaml
+modelClass: ProgrammerLab\Nportal\Models\Sidebar
+defaultRedirect: programmerlab/nportal/sidebars
+create:
+    redirect: 'programmerlab/nportal/sidebars/update/:id'
+    redirectClose: programmerlab/nportal/sidebars
+update:
+    redirect: programmerlab/nportal/sidebars
+    redirectClose: programmerlab/nportal/sidebars

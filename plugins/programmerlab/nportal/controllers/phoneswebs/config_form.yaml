@@ -1,0 +1,10 @@
+name: PhonesWebs
+form: $/programmerlab/nportal/models/phoneweb/fields.yaml
+modelClass: ProgrammerLab\Nportal\Models\PhoneWeb
+defaultRedirect: programmerlab/nportal/phoneswebs
+create:
+    redirect: 'programmerlab/nportal/phoneswebs/update/:id'
+    redirectClose: programmerlab/nportal/phoneswebs
+update:
+    redirect: programmerlab/nportal/phoneswebs
+    redirectClose: programmerlab/nportal/phoneswebs

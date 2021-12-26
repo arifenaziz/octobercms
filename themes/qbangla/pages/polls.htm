@@ -1,0 +1,69 @@
+title = "Polls"
+url = "/polls"
+layout = "default"
+description = "Polls Page"
+is_hidden = 0
+==
+<?php
+use ProgrammerLab\Nportal\Models\Poll;
+function onStart()
+{
+	$this['polls'] = Poll::orderBy('created_at', 'desc')->with('polllogs')->paginate(20);
+}
+?>
+==
+<div class="row polls-news">
+    <!-- Main Content -->
+    {% for poll in polls %}
+    <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <!-- main content -->
+        <div class="row margin-b-15 bk-white-n m-t-5">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="poll-header">
+                    <a href="#">
+                        <h3>জনমত জরিপ ফলাফল</h3>
+                    </a>
+                </div>
+                <div class="poll-box clearfix">
+                    <div class="n-date">
+                        <i class="fa fa-clock-o" aria-hidden="true"></i>&nbsp;{{ poll.getBanglaDate() }}
+                    </div>
+                    <p class="poll-content">
+                        {{ poll.question }}
+                    </p>
+                    {% set total = poll.polllogs().count %}
+        						{% set yes = poll.polllogs().where('vote_count', 1).count %}
+        						{% set no = poll.polllogs().where('vote_count', 2).count %}
+        						{% set no_comment = poll.polllogs().where('vote_count', 3).count %}
+                    <div class="poll-options">
+                        <?php echo "ok"; ?>
+                        <p>হ্যাঁ - {{ yes }}</p>
+                        <progress class="progress progress-bar-success" value="{{ yes }}" max="{{ total }}" style="width: 100%;">
+                          {{ yes }}
+                        </progress>
+                        <p>না - {{ no }}</p>
+                        <progress class="progress progress-bar-danger" value="{{ no }}" max="{{ total }}" style="width: 100%;">
+                          {{ no }}
+                        </progress>
+                        <p>মন্তব্য নেই - {{  no_comment }}</p>
+                        <progress class="progress progress-warning" value="{{ no_comment }}" max="{{ total }}" style="width: 100%;">
+                          {{ no_comment }}
+                        </progress>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- ./main content -->
+    </div>
+    {% endfor %}
+    <!-- ./Main Content -->
+
+    <!-- pagination -->
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <nav aria-label="Page navigation pull-right">
+        {{ polls.render|raw }}
+      </nav>
+    </div>
+    <!-- pagination -->
+</div>

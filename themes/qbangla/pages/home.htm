@@ -1,0 +1,961 @@
+title = "Home"
+url = "/"
+layout = "default"
+description = "Home Page"
+is_hidden = 0
+==
+<?php
+use ProgrammerLab\Nportal\Models\Article;
+use ProgrammerLab\Nportal\Models\Category;
+use ProgrammerLab\Nportal\Models\Sidebar;
+use ProgrammerLab\Nportal\Models\Ad;
+use ProgrammerLab\Nportal\Models\Poll;
+use ProgrammerLab\Nportal\Models\PollLog;
+function onStart(){
+  $this['hsbars']= Sidebar::orderBy('created_at', 'asc')->get();
+  $this['polls']= Poll::where('status', 'published')->orderBy('created_at', 'desc')->take(1)->get();
+  //advertisement===============================================================
+  $this['homebn'] = Ad::where('is_home_banner', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['home1'] = Ad::where('is_home_1', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['home2'] = Ad::where('is_home_2', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['home3'] = Ad::where('is_home_3', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['home4'] = Ad::where('is_home_4', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['home5'] = Ad::where('is_home_5', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['home6'] = Ad::where('is_home_6', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['home7'] = Ad::where('is_home_7', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['home8'] = Ad::where('is_home_8', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['homesdtop'] = Ad::where('is_home_sidebar_top', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['homesd1'] = Ad::where('is_home_sidebar_1', 1)->orderBy('created_at', 'desc')->take(1)->get();
+  $this['homesd2'] = Ad::where('is_home_sidebar_2', 1)->orderBy('created_at', 'desc')->take(1)->get();
+
+  // column ====================================================================
+  $catID = 4;
+  $selectedCatID = Category::find($catID);
+  $this['colArticles'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(5)->get();
+
+  // Interview =================================================================
+  $catID = 15;
+  $selectedCatID = Category::find($catID);
+  $this['leadNews'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(6)->get();
+
+  // qatar =====================================================================
+  $catID = 1;
+  $selectedCatID = Category::find($catID);
+  $this['qatarArticles'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(6)->get();
+
+  // bangladesh=================================================================
+  $catID = 2;
+  $selectedCatID = Category::find($catID);
+  $this['bnArticles'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(6)->get();
+
+  // world =====================================================================
+  $catID = 3;
+  $selectedCatID = Category::find($catID);
+  $this['wdArticles'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(6)->get();
+
+  // medile east================================================================
+  $catID = 6;
+  $selectedCatID = Category::find($catID);
+  $this['mdArticles'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(6)->get();
+
+  // culture ================================================================
+  $catID = 7;
+  $selectedCatID = Category::find($catID);
+  $this['culArticles'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(6)->get();
+
+  // adviced ================================================================
+  // $catID = 8;
+  // $selectedCatID = Category::find($catID);
+  // $this['adArticles'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(6)->get();
+
+  // community =================================================================
+  $catID = 9;
+  $selectedCatID = Category::find($catID);
+  $this['guArticles'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(5)->get();
+
+  // Literature =================================================================
+  $catID = 16;
+  $selectedCatID = Category::find($catID);
+  $this['liArticles'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(5)->get();
+
+  // emigration =================================================================
+  $catID = 17;
+  $selectedCatID = Category::find($catID);
+  $this['emArticles'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(5)->get();
+
+  // Advice =================================================================
+  $catID = 8;
+  $selectedCatID = Category::find($catID);
+  $this['adArticles'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(5)->get();
+
+  // Selected feature ===========================================================
+  $catID = 10;
+  $featuresCatID = Category::find($catID);
+  $this['featureArticles'] = $featuresCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(5)->get();
+
+  // technology ===========================================================
+  $catID = 18;
+  $selectedCatID = Category::find($catID);
+  $this['techArticles'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(5)->get();
+
+  // Others ===========================================================
+  $catID = 13;
+  $selectedCatID = Category::find($catID);
+  $this['otherArticles'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'short_title' , 'feature_img')->take(5)->get();
+
+  // latest news ===============================================================
+  $this['latestNews'] = Article::getLatestNews(10);
+  // top news ==================================================================
+  $this['topNews'] = Article::getTopNews(10);
+}
+
+// Search=======================================================================
+public function onSubmit(){
+	$q = post('q');
+  $appURL = 'http://gulfbangla.com';
+	$srurl = $appURL.'/search/'.$q;
+	return Redirect::to($srurl);
+}
+
+function onSubmitPoll(){
+  $pollObj = new PollLog;
+
+  $pollObj->poll_id    = post('poll-id');
+  $pollObj->vote_count = post('option');
+  $pollObj->save();
+
+   Flash::success('আপনার ভোট গ্রহণ করা হলো।');
+}
+?>
+==
+<!-- banner -->
+{% if homebn[0] %}
+<div class="row m-t-5">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white">
+    <div class="box-ad text-center">
+      <a href="{{ homebn[0].url }}">
+        <img class="img-responsive" src="{{ homebn[0].ad_img | media | resize(1158,60, { mode: 'crop', quality: '80' }) }}" alt="Advertisement">
+      </a>
+    </div>
+  </div>
+</div>
+{% endif %}
+<!-- ./banner -->
+
+<div class="row">
+  <!-- main section -->
+  <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+
+    <!-- first Lead row -->
+    <div class="row m-t-5">
+        {% for i in 0..2 %}
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 bk-white-n   sm-b-margin">
+          <div class="box">
+            <a href="{{ url('/news', leadNews[i].id ) }}" title="{{ leadNews[i].title }}">
+              <img src="{{ leadNews[i].feature_img | media | resize(278,172, { mode: 'crop', quality: '80' }) }}" alt="{{ leadNews[i].title }}" width="100%">
+              <h3 class="box-title">{{ leadNews[i].title }}</h3>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+    </div>
+    <!-- ./first lead row -->
+
+      <!-- second row -->
+      <div class="row m-t-5">
+        {% for i in 3..5 %}
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 bk-white-n sm-b-margin">
+          <div class="box">
+            <a href="{{ url('/news', leadNews[i].id ) }}" title="{{ leadNews[i].title }}">
+              <img src="{{ leadNews[i].feature_img | media | resize(278,172, { mode: 'crop', quality: '80' }) }}" alt="{{ leadNews[i].title }}" width="100%">
+              <h3 class="box-title">{{ leadNews[i].title }}</h3>
+            </a>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <!-- ./second row -->
+
+      <!-- advertisement row-one -->
+      <div class="row m-t-5">
+        {% if home1[0] %}
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 bk-white-n sm-b-margin">
+          <div class="box-ad text-center">
+            <a href="{{ home1[0].url }}">
+              <img class="img-responsive" src="{{ home1[0].ad_img | media }}" alt="Advertisement" style="width: 423px; height:80px;">
+            </a>
+          </div>
+        </div>
+        {% endif %}
+        {% if home2[0] %}
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 bk-white-n">
+          <div class="box-ad text-center">
+            <a href="{{ home2[0].url }}">
+              <img class="img-responsive" src="{{ home2[0].ad_img | media }}" alt="Advertisement" style="width: 423px; height:80px;">
+            </a>
+          </div>
+        </div>
+        {% endif %}
+      </div>
+      <!-- ./advertisement row-one -->
+
+      <!--google ad -->
+      <!-- <div class="row m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white-n sm-b-margin">
+          <div class="box-ad text-center">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    
+            Home New 1
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:100%;height:150px"
+                 data-full-width-responsive="true"
+                 data-ad-client="ca-pub-3244995337542395"
+                 data-ad-slot="4521148763">
+                 </ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+      </div> -->
+      <!-- ./google ad -->
+      
+      
+
+      
+
+      <!-- third -->
+      <div class="row m-t-5">
+        <!-- quater -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="row">
+              <!-- box header -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-header">
+                      <a href="{{ url('/category', 1) }}"><h4>কাতার</h4></a>
+                  </div>
+                </div>
+              </div>
+              <!-- box header -->
+
+              <!-- box content -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-content">
+                    <div class="list-group">
+                      {% for i in 0..4 %}
+                      <a title="{{ qatarArticles[i].title }}" href="{{ url('/news', qatarArticles[i].id ) }}" class="list-group-item">
+                        {{ qatarArticles[i].short_title }}
+                      </a>
+                      {% endfor %}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ./box content -->
+            </div>
+        </div>
+        <!-- ./quater -->
+
+        <!-- Midilist -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="row">
+              <!-- box header -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-header">
+                      <a href="{{ url('/category', 6) }}"><h4>মধ্যপ্রাচ্য</h4></a>
+                  </div>
+                </div>
+              </div>
+              <!-- box header -->
+
+              <!-- box content -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-content">
+                    <div class="list-group">
+                      {% for i in 0..4 %}
+                      <a title="{{ mdArticles[i].title }}" href="{{ url('/news', mdArticles[i].id ) }}" class="list-group-item">
+                        {{ mdArticles[i].short_title }}
+                      </a>
+                      {% endfor %}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ./box content -->
+            </div>
+        </div>
+        <!-- ./Midilist -->
+
+        <!-- community -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="row">
+              <!-- box header -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-header">
+                      <a href="{{ url('/category', 9) }}"><h4>কমিউনিটি সংবাদ</h4></a>
+                  </div>
+                </div>
+              </div>
+              <!-- box header -->
+
+              <!-- box content -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-content">
+                    <div class="list-group">
+                      {% for i in 0..4 %}
+                        <a href="{{ url('/news', guArticles[i].id ) }}" class="list-group-item">
+                          {{ guArticles[i].title }}
+                        </a>
+                      {% endfor %}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ./box content -->
+            </div>
+        </div>
+        <!-- ./community -->
+      </div>
+      <!-- ./third -->
+
+      <!-- advertisement row-two -->   
+
+      <!-- google add -->
+      <!-- <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white-n sm-b-margin">          
+            Homepage New 2
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:100%;height:150px"
+                 data-full-width-responsive="true"
+                 data-ad-client="ca-pub-3244995337542395"
+                 data-ad-slot="3184016365">
+                 </ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+      </div> -->
+      <!-- ./google add -->
+      <!-- ./advertisement row-two -->
+
+      <!-- Forth -->
+      <div class="row m-t-5">
+        <!-- Bangladesh -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="row">
+              <!-- box header -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-header">
+                      <a href="{{ url('/category', 2) }}"><h4>বাংলাদেশ</h4></a>
+                  </div>
+                </div>
+              </div>
+              <!-- box header -->
+
+              <!-- box content -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-content">
+                    <div class="list-group">
+                        {% for i in 0..4 %}
+                        <a title="{{ bnArticles[i].title }}" href="{{ url('/news', bnArticles[i].id ) }}" class="list-group-item">
+                          {{ bnArticles[i].short_title }}
+                        </a>
+                        {% endfor %}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ./box content -->
+            </div>
+        </div>
+        <!-- ./Bangladesh -->
+
+        <!-- World -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="row">
+              <!-- box header -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-header">
+                      <a href="{{ url('/category', 3) }}"><h4>বিশ্ব</h4></a>
+                  </div>
+                </div>
+              </div>
+              <!-- box header -->
+
+              <!-- box content -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-content">
+                    <div class="list-group">
+                      {% for i in 0..4 %}
+                      <a title="{{ wdArticles[i].title }}" href="{{ url('/news', wdArticles[i].id ) }}" class="list-group-item">
+                        {{ wdArticles[i].short_title }}
+                      </a>
+                      {% endfor %}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ./box content -->
+            </div>
+        </div>
+        <!-- ./World -->
+
+        <!-- culture -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="row">
+              <!-- box header -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-header">
+                      <a href="{{ url('/category', 7) }}"><h4>সংস্কৃতি</h4></a>
+                  </div>
+                </div>
+              </div>
+              <!-- box header -->
+
+              <!-- box content -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-content">
+                    <div class="list-group">
+                      {% for i in 0..4 %}
+                      <a title="{{ culArticles[i].title }}" href="{{ url('/news', culArticles[i].id ) }}" class="list-group-item">
+                        {{ culArticles[i].short_title }}
+                      </a>
+                      {% endfor %}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ./box content -->
+            </div>
+        </div>
+        <!-- ./culture -->
+      </div>
+      <!-- ./Forth -->
+
+
+
+      <!--google ad -->
+      <!-- <div class="row m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white-n sm-b-margin">
+          <div class="box-ad text-center">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                    
+            Home New 1
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:100%;height:150px"
+                 data-full-width-responsive="true"
+                 data-ad-client="ca-pub-3244995337542395"
+                 data-ad-slot="3956499959">
+                 </ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+      </div> -->
+      <!-- ./google ad -->
+
+
+      <!-- Fifth -->
+      <div class="row m-t-5">
+        <!-- Adviced -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="row">
+              <!-- box header -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-header">
+                      <a href="{{ url('/category', 8) }}"><h4>পরামর্শ</h4></a>
+                  </div>
+                </div>
+              </div>
+              <!-- box header -->
+
+              <!-- box content -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-content">
+                    <div class="list-group">
+                      {% for i in 0..4 %}
+                        <a href="{{ url('/news', adArticles[i].id ) }}" class="list-group-item">
+                          {{ adArticles[i].title }}
+                        </a>
+                      {% endfor %}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ./box content -->
+            </div>
+        </div>
+        <!-- ./Adviced -->
+
+        <!-- feature -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="row">
+              <!-- box header -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-header">
+                      <a href="{{ url('/category', 10) }}"><h4>ফিচার</h4></a>
+                  </div>
+                </div>
+              </div>
+              <!-- box header -->
+
+              <!-- box content -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-content">
+                    <div class="list-group">
+                      {% for i in 0..4 %}
+                        <a href="{{ url('/news', featureArticles[i].id ) }}" class="list-group-item">
+                          {{ featureArticles[i].title }}
+                        </a>
+                      {% endfor %}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ./box content -->
+            </div>
+        </div>
+        <!-- ./feature -->
+
+        <!-- technology -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="row">
+              <!-- box header -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-header">
+                      <a href="{{ url('/category', 18) }}"><h4>অন্যান্য</h4></a>
+                  </div>
+                </div>
+              </div>
+              <!-- box header -->
+
+              <!-- box content -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-content">
+                    <div class="list-group">
+                      {% for i in 0..4 %}
+                        <a href="{{ url('/news', techArticles[i].id ) }}" class="list-group-item">
+                          {{ techArticles[i].title }}
+                        </a>
+                      {% endfor %}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ./box content -->
+            </div>
+        </div>
+        <!-- ./technology -->
+      </div>
+      <!-- ./Fifth -->
+
+
+
+
+      <!--google ad -->
+     <!--  <div class="row m-t-5">
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white-n sm-b-margin">
+         <div class="box-ad text-center">
+           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                   
+           Home New 1
+           <ins class="adsbygoogle"
+                style="display:inline-block;width:100%;height:150px"
+                data-full-width-responsive="true"
+                data-ad-client="ca-pub-3244995337542395"
+                data-ad-slot="1125681851"></ins>
+           <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+           </script>
+         </div>
+       </div>
+     </div> -->
+      <!-- ./google ad -->
+
+
+
+
+      <!-- Sixteen -->
+      <div class="row m-t-5">
+        <!--Literature  colums -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="row">
+              <!-- box header -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-header">
+                      <a href="{{ url('/category', 16) }}"><h4>সাহিত্য</h4></a>
+                  </div>
+                </div>
+              </div>
+              <!-- box header -->
+
+              <!-- box content -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-content">
+                    <div class="list-group">
+                      {% for i in 0..4 %}
+                        <a href="{{ url('/news', liArticles[i].id ) }}" class="list-group-item">
+                          {{ liArticles[i].title }}
+                        </a>
+                      {% endfor %}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ./box content -->
+            </div>
+        </div>
+        <!-- ./Literature colums -->        
+
+        <!-- emigration -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="row">
+              <!-- box header -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-header">
+                      <a href="{{ url('/category', 17) }}"><h4>প্রবাসপত্র</h4></a>
+                  </div>
+                </div>
+              </div>
+              <!-- box header -->
+
+              <!-- box content -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-content">
+                    <div class="list-group">
+                      {% for i in 0..4 %}
+                        <a href="{{ url('/news', emArticles[i].id ) }}" class="list-group-item">
+                          {{ emArticles[i].title }}
+                        </a>
+                      {% endfor %}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ./box content -->
+            </div>
+        </div>
+        <!-- ./emigration -->
+
+        <!-- Others -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+            <div class="row">
+              <!-- box header -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-header">
+                      <a href="{{ url('/category', 13) }}"><h4>খেলাধুলা</h4></a>
+                  </div>
+                </div>
+              </div>
+              <!-- box header -->
+
+              <!-- box content -->
+              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-b-5 bk-white-n">
+                <div class="box">
+                  <div class="box-content">
+                    <div class="list-group">
+                      {% for i in 0..4 %}
+                        <a href="{{ url('/news', otherArticles[i].id ) }}" class="list-group-item">
+                          {{ otherArticles[i].title }}
+                        </a>
+                      {% endfor %}
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ./box content -->
+            </div>
+        </div>
+        <!-- ./Others -->
+
+      </div>
+      <!-- ./Sixteen -->
+
+
+
+      <div class="row m-t-5">
+        <!--Literature  colums -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-12">
+            <div class="row">      
+      
+      <iframe width="100%" height="400" src="https://www.youtube.com/embed/videoseries?list=PL7kKJjbnplztZwFZpx7BtkJAj2cuQDFLm" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      
+</div>
+</div>
+</div>
+
+      
+
+  </div>
+  <!-- ./main section -->
+
+  <!-- sidebar -->
+  <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+      <!-- ad -->
+      {% if homesdtop[0] %}
+      <div class="row m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white">
+          <div class="box-ad text-center">
+            <a href="{{ homesdtop[0].url }}">
+              <img class="img-responsive" src="{{ homesdtop[0].ad_img | media }}" alt="Advertisement" style="width: 282px; height: 80px;">
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- ./ad -->
+
+      <!-- adsence -->
+      <!-- <div class="row m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="box-ad text-center">            
+            Home Top Right1
+            <ins class="adsbygoogle"
+                 style="display:inline-block;width:265px;height:300px;"
+                 data-ad-client="ca-pub-3244995337542395"
+                 data-ad-slot="6010762705"
+                >
+                 </ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+      </div> -->
+      <!-- ./adsence -->
+      
+      
+      
+      
+            <!-- adsence -->
+     <!--  <div class="row m-t-5">
+       <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+         <div class="box-ad text-center">            
+           Home Top Right1
+           <ins class="adsbygoogle"
+                style="display:inline-block;width:265px;height:300px;"
+                data-ad-client="ca-pub-3244995337542395"
+                data-ad-slot="5881919943"
+               >
+                </ins>
+           <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+           </script>
+         </div>
+       </div>
+     </div> -->
+      <!-- ./adsence -->
+      
+      
+
+      <!-- latest news -->
+      <div class="row m-t-5 ls-news">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white">
+          <div>
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs" role="tablist">
+               <li role="presentation" class="active">
+                 <a href="#latest" aria-controls="home" role="tab" data-toggle="tab">সর্বশেষ</a>
+               </li>
+               <li role="presentation">
+                 <a href="#most-readed" aria-controls="most-readed" role="tab" data-toggle="tab">আলোচিত</a>
+               </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+               <div role="tabpanel" class="tab-pane active" id="latest">
+                 <div class="box">
+                   <div class="box-content">
+                     <div class="list-group">
+                        {% for ls in latestNews %}
+                         <a href="{{ url('/news', ls.id) }}" title="{{ ls.title }}" class="list-group-item">
+                           {{ ls.short_title }}
+                         </a>
+                        {% endfor %}
+                       </div>
+                   </div>
+                 </div>
+               </div>
+               <div role="tabpanel" class="tab-pane" id="most-readed">
+                 <div class="box">
+                   <div class="box-content">
+                     <div class="list-group">
+                       {% for tn in topNews %}
+                        <a href="{{ url('/news', tn.id) }}" title="{{ tn.title }}" class="list-group-item">
+                          {{ tn.short_title }}
+                        </a>
+                       {% endfor %}
+                       </div>
+                   </div>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ./latest news -->
+
+
+      <!-- adsence -->
+      <!-- <div class="row m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="box-ad text-center">            
+            Home Top Right1
+            <ins class="adsbygoogle"
+                 style="display:block"
+                 data-ad-client="ca-pub-3244995337542395"
+                 data-ad-slot="3821016002"
+                 data-ad-format="auto"></ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+      </div> -->
+      <!-- ./adsence -->
+
+
+
+      <!--sidebar  tiker section -->
+      {% for sd in hsbars %}
+        {% for i in 1..15 %}
+          {% if sd.sidebars[i] %}
+          <div class="row m-t-5">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 link-title">
+              <a href="{{ sd.sidebars[i].url }}"><h4>{{ sd.sidebars[i].title }}</h4></a>
+            </div>
+          </div>
+          {% endif %}
+        {% endfor %}
+      {% endfor %}
+      <!-- ./sidebar tiker section -->
+
+      <!-- ad -->
+      {% if homesd1[0] %}
+      <div class="row m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white">
+          <div class="box-ad text-center">
+            <a href="{{ homesd1[0].url }}">
+              <img class="img-responsive" src="{{ homesd1[0].ad_img | media }}" alt="Advertisement" style="width: 282px; height: 250px;">
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+
+      {% if homesd2[0] %}
+      <div class="row m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white">
+          <div class="box-ad text-center">
+            <a href="{{ homesd2[0].url }}">
+              <img class="img-responsive" src="{{ homesd2[0].ad_img | media }}" alt="Advertisement" style="width: 282px; height: 80px;">
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <!-- ./ad -->
+
+      <!-- poll -->
+      <div class="row m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white">
+        
+        <div class="box">
+                  <div class="box-header">
+                      <h4>  ইউটিউবে গালফ বাংলার সঙ্গে থাকুন   </h4>
+                  </div>
+                </div>             
+
+<script src="https://apis.google.com/js/platform.js"></script>
+
+<div class="g-ytsubscribe" data-channelid="UCC2KWDemBkeUXovPdfO11YA" data-layout="full" data-count="default"></div>
+
+
+        </div>
+
+
+      </div>
+      <!-- ./poll -->
+ 
+      
+      
+      
+      
+
+
+
+      <!-- fb like box -->
+      <div class="row m-t-5 m-b-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white">
+        <div class="box">
+                  <div class="box-header">
+                      <h4>  ফেসবুকে লাইক দিয়ে সঙ্গে থাকুন   </h4>
+                  </div>
+                </div>
+                
+          <div class="fb-page" data-href="https://www.facebook.com/GBangla2018/" data-width="283px" data-height="300px" data-small-header="true" data-adapt-container-width="false" data-hide-cover="false" data-show-facepile="true">
+            <blockquote cite="https://www.facebook.com/GBangla2018/" class="fb-xfbml-parse-ignore">
+              <a href="https://www.facebook.com/GBangla2018/">কাতারের বাংলা খবর</a>
+            </blockquote>
+          </div>
+        </div>
+      </div>
+      <!-- ./fb like box -->
+      
+      
+      
+            <!-- poll -->
+      <div class="row m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white">
+        
+        <div class="box">
+                  <div class="box-header">
+                      <h4>  হোয়াটসঅ্যাপ  </h4>
+                  </div>
+                </div>             
+
+<a href="https://web.whatsapp.com/send?phone=+97430488114&text=গালফ বাংলার নিয়মিত আপডেট পেতে আগ্রহী।." class="float whatsapp-div" target="_blank">
+<i class="fa fa-whatsapp my-float"></i>
+</a>
+
+
+
+
+        </div>
+
+
+      </div>
+      <!-- ./poll -->
+      
+      
+      
+      
+      
+  </div>
+  <!-- ./sidebar -->
+</div>

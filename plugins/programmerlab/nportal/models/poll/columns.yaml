@@ -1,0 +1,36 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+        sortable: true
+        width: 10px
+    question:
+        label: Poll
+        type: text
+        searchable: true
+        sortable: true
+    created_by_col:
+        label: 'Created By'
+        type: text
+        searchable: false
+        sortable: false
+        path: ~/plugins/programmerlab/nportal/models/Poll/_created_by_column.htm
+        width: 150px
+    updated_by_col:
+        label: 'Updated By'
+        type: text
+        searchable: false
+        sortable: false
+        path: ~/plugins/programmerlab/nportal/models/Poll/_created_by_column.htm
+        width: 150px
+    created_at:
+        label: 'Created at'
+        type: date
+        sortable: true
+        width: 150px
+    updated_at:
+        label: 'Updated at'
+        type: date
+        sortable: true
+        width: 150px

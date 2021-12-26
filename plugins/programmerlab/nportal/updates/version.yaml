@@ -1,0 +1,41 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table programmerlab_nportal_im_galleries'
+    - builder_table_create_programmerlab_nportal_im_galleries.php
+1.0.3:
+    - 'Created table programmerlab_nportal_video_galleries'
+    - builder_table_create_programmerlab_nportal_video_galleries.php
+1.0.4:
+    - 'Created table programmerlab_nportal_categories'
+    - builder_table_create_programmerlab_nportal_categories.php
+1.0.5:
+    - 'Created table programmerlab_nportal_articles'
+    - builder_table_create_programmerlab_nportal_articles.php
+1.0.6:
+    - 'Created table programmerlab_nportal_article_category'
+    - builder_table_create_programmerlab_nportal_article_category.php
+1.0.7:
+    - 'Created table programmerlab_nportal_ads'
+    - builder_table_create_programmerlab_nportal_ads.php
+1.0.8:
+    - 'Created table programmerlab_nportal_phones_webs'
+    - builder_table_create_programmerlab_nportal_phones_webs.php
+1.0.9:
+    - 'Created table programmerlab_nportal_newsportals'
+    - builder_table_create_programmerlab_nportal_newsportals.php
+1.0.10:
+    - 'Created table programmerlab_nportal_contacts'
+    - builder_table_create_programmerlab_nportal_contacts.php
+1.0.11:
+    - 'Created table programmerlab_nportal_sidebars'
+    - builder_table_create_programmerlab_nportal_sidebars.php
+1.0.12:
+    - 'Created table programmerlab_nportal_polls'
+    - builder_table_create_programmerlab_nportal_polls.php
+1.0.13:
+    - 'Created table programmerlab_nportal_poll_logs'
+    - builder_table_create_programmerlab_nportal_poll_logs.php
+1.0.14:
+    - 'Created table programmerlab_nportal_pdf'
+    - builder_table_create_programmerlab_nportal_pdf.php

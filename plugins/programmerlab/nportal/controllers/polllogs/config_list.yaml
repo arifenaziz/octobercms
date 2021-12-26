@@ -1,0 +1,12 @@
+title: PollLogs
+modelClass: ProgrammerLab\Nportal\Models\PollLog
+list: $/programmerlab/nportal/models/polllog/columns.yaml
+recordUrl: 'programmerlab/nportal/polllogs/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: '30'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

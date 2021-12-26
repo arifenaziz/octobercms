@@ -1,0 +1,67 @@
+title = "Phone"
+url = "/phone"
+layout = "default"
+description = "Phone Number Page"
+is_hidden = 0
+==
+<?php
+  use ProgrammerLab\Nportal\Models\PhoneWeb;
+  function onStart(){
+    //bangla =====================================================================
+    $this['phones'] = PhoneWeb::orderBy('created_at', 'asc')->where('type', 'phone')->get();
+
+  }
+?>
+
+
+==
+
+<div class="row">
+  <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+  <!-- bangla -->
+    <!-- bangla header -->
+    <div class="row bk-white-n m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <div class="box">
+            <div class="box-header">
+                <h4>প্রয়োজনীয় ফোন নম্বর</h4>
+            </div>
+          </div>
+        </div>
+    </div>
+    <!-- ./bangla header -->
+
+    <div class="row m-t-5">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+          <div class="row m-t-5">
+              {% for ph in phones %}
+              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 bk-white-n">
+                <div class="box-npw">
+                  <div class="media">
+                    <div class="media-left media-middle">
+                      <a href="{{ ph.web_link }}">
+                        <img class="media-object" src="{{ ph.logo | media }}" alt="...">
+                      </a>
+                    </div>
+                    <div class="media-body">
+                      <h4 class="media-heading">{{ ph.title }}</h4>
+                      <p>{{ ph.phone_no }}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+          </div>
+
+        </div>
+    </div>
+
+  </div>
+
+  <!-- sidebar -->
+  <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3">
+
+  </div>
+  <!-- ./sidebar -->
+</div>

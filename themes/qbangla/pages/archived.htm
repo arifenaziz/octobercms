@@ -1,0 +1,84 @@
+title = "Archived"
+url = "/archived"
+layout = "default"
+description = "Archived Page"
+is_hidden = 0
+==
+<?php
+use ProgrammerLab\Nportal\Models\Article;
+function onStart(){
+  $this['articles'] = Article::where('status', 'published')
+  ->orderBy('published_at', 'desc')
+  ->select('id','title','excerpt','feature_img','published_at')
+  ->paginate(20);
+}
+?>
+==
+<div class="row">
+    <!-- Main Content -->
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+        <!-- page header -->
+        <div class="row bk-white-n m-t-5">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="box">
+                <div class="box-header">
+                    <h4>সব সংবাদ</h4>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- ./page header -->
+
+        <!-- main content -->
+        <div class="row">
+          {% for ar in articles %}
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 bk-white-n m-t-5">
+                <div class="cat-news-header">
+                    <a href="{{ url('/news', ar.id) }}">
+                        <h3>{{ ar.title }}</h3>
+                    </a>
+                    <div class="cat-date">
+                      <i class="fa fa-clock-o" aria-hidden="true"></i> <span>{{ ar.getBanglaDate() }}</span>
+                    </div>
+                </div>
+
+                <div class="row cat-news-content">
+                    <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                        <a href="{{ url('/news', ar.id) }}">
+                            <img class="img-responsive" src="{{ ar.feature_img| media | resize(121,90, { mode: 'crop', quality: '80' }) }}" alt="{{ ar.title }}">
+                        </a>
+                    </div>
+                    <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                        <a href="{{ url('/news', ar.id) }}">
+                            <p class="cat-news-content">
+                                {{ ar.excerpt }}
+                            </p>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <!-- ./main content -->
+
+        <!-- pagination -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <nav aria-label="Page navigation" style="float: right;">
+                {{ articles.render|raw }}
+              </nav>
+            </div>
+        </div>
+        <!-- pagination -->
+
+    </div>
+    <!-- ./Main Content -->
+
+    <!-- sidebar -->
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div class="row">
+
+        </div>
+    </div>
+    <!-- ./sidebar -->
+</div>

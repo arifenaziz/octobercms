@@ -1,0 +1,10 @@
+name: Categories
+form: $/programmerlab/nportal/models/category/fields.yaml
+modelClass: ProgrammerLab\Nportal\Models\Category
+defaultRedirect: programmerlab/nportal/categories
+create:
+    redirect: 'programmerlab/nportal/categories/update/:id'
+    redirectClose: programmerlab/nportal/categories
+update:
+    redirect: programmerlab/nportal/categories
+    redirectClose: programmerlab/nportal/categories

@@ -1,0 +1,111 @@
+fields:
+    title:
+        label: TItle
+        oc.commentPosition: ''
+        span: full
+        required: 1
+        type: text
+    short_title:
+        label: 'Short title'
+        oc.commentPosition: ''
+        span: full
+        required: 1
+        type: text
+    hanger:
+        label: Hanger
+        oc.commentPosition: ''
+        span: full
+        type: text
+    shoulder:
+        label: Shoulder
+        oc.commentPosition: ''
+        span: full
+        type: text
+    slug:
+        label: Slug
+        oc.commentPosition: ''
+        span: full
+        type: text
+    content:
+        label: Content
+        size: giant
+        oc.commentPosition: ''
+        span: full
+        type: richeditor
+    excerpt:
+        label: Excerpt
+        size: large
+        oc.commentPosition: ''
+        span: full
+        type: textarea
+    keywords:
+        label: Tags
+        size: large
+        oc.commentPosition: ''
+        span: full
+        type: taglist
+        separator: comma
+    author_img:
+        label: 'Author Image'
+        span: full
+        oc.commentPosition: ''
+        mode: image
+        required: 1
+        type: mediafinder
+    author_name:
+        label: Author Name
+        oc.commentPosition: ''
+        span: full
+        type: text
+    author_designation:
+        label: Author Designation
+        oc.commentPosition: ''
+        span: full
+        type: text
+    status:
+        label: Status
+        oc.commentPosition: ''
+        options:
+            published: Published
+            unpublished: Unpublished
+            draft: Draft
+        span: full
+        type: dropdown
+    published_at:
+        label: 'Published Time'
+        oc.commentPosition: ''
+        mode: datetime
+        span: full
+        type: datepicker
+    is_breaking:
+        label: 'Ticker Headline'
+        span: full
+        type: checkbox
+    comment_box:
+        label: 'Comment Box'
+        span: full
+        type: checkbox
+    feature_img:
+        label: 'Feature Image'
+        span: full
+        oc.commentPosition: ''
+        mode: image
+        required: 1
+        type: mediafinder
+    caption:
+        label: Caption
+        oc.commentPosition: ''
+        span: full
+        type: text
+    is_feature_img:
+        label: 'Show Feature Image'
+        span: full
+        type: checkbox
+    categories:
+        label: Categories
+        oc.commentPosition: ''
+        nameFrom: display_name
+        descriptionFrom: description
+        span: full
+        required: 1
+        type: relation

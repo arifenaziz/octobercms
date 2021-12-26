@@ -1,0 +1,38 @@
+fields:
+    title:
+        label: 'Title/Office Name'
+        oc.commentPosition: ''
+        span: left
+        required: 1
+        type: text
+    logo:
+        label: Logo
+        oc.commentPosition: ''
+        mode: image
+        span: left
+        type: mediafinder
+        comment: 'Size: 64x64'
+    type:
+        label: Type
+        oc.commentPosition: ''
+        options:
+            phone: Phone
+            web: Web
+        span: left
+        required: 1
+        type: dropdown
+    web_address:
+        label: 'Web Address'
+        oc.commentPosition: ''
+        span: left
+        type: text
+    web_link:
+        label: 'Web Site Link'
+        oc.commentPosition: ''
+        span: left
+        type: text
+    phone_no:
+        label: 'Phone Number'
+        span: left
+        oc.commentPosition: ''
+        type: number

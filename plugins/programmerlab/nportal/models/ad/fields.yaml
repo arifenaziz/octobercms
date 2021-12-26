@@ -1,0 +1,122 @@
+fields:
+    title:
+        label: 'Title/Company name'
+        oc.commentPosition: ''
+        span: left
+        type: text
+    is_home_banner:
+        label: 'Home Banner'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-1158px & H-60px"
+    url:
+        label: URL/Link
+        oc.commentPosition: ''
+        span: left
+        type: text
+    is_home_1:
+        label: 'Home 1'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-423px & H-80px"
+    ad_img:
+        label: Image
+        oc.commentPosition: ''
+        mode: image
+        span: left
+        type: mediafinder
+    is_home_2:
+        label: 'Home 2'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-423px & H-80px"
+    is_home_3:
+        label: 'Home 3'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-423px & H-80px"
+    is_home_4:
+        label: 'Home 4'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-423px & H-80px"
+    is_home_5:
+        label: 'Home 5'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-423px & H-80px"
+    is_home_6:
+        label: 'Home 6'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-423px & H-80px"
+    is_home_7:
+        label: 'Home 7'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-423px & H-80px"
+    is_home_8:
+        label: 'Home 8'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-423px & H-80px"
+    is_home_sidebar_top:
+        label: 'Home Sidebar Top'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-282px & H-80px"
+    is_home_sidebar_1:
+        label: 'Home Sidebar 1'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-282px & H-250px"
+    is_home_sidebar_2:
+        label: 'Home Sidebar 2'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-282px & H-80px"
+    is_cat_1:
+        label: 'Category page 1'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-850px & H-80px"
+    is_cat_2:
+        label: 'Category Page 2'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-850px & H-80px"
+    is_cat_sidebar_1:
+        label: 'Category Sidebar 1'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-282px & H-80px"
+    is_cat_sidebar_2:
+        label: 'Category Sidebar 2'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-282px & H-250px"
+    is_single_1:
+        label: 'Single Page Top'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-850px & H-80px"
+    is_single_2:
+        label: 'Single Page Bottom'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-850px & H-80px"
+    is_single_sidebar_1:
+        label: 'Single sidebar Top'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-282px & H-80px"
+    is_single_sidebar_2:
+        label: 'Single Sidebar 2'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-282px & H-80px"
+    is_single_siderbar_3:
+        label: 'Single sidebar 3'
+        span: right
+        type: checkbox
+        commentAbove: "Size: W-282px & H-250px"

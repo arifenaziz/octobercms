@@ -1,0 +1,16 @@
+fields:
+    question:
+        label: Question
+        oc.commentPosition: ''
+        span: left
+        required: 1
+        type: text
+    status:
+        label: Status
+        span: left
+        oc.commentPosition: ''
+        options:
+            published: Published
+            unpublished: Unpublished
+            draft: Draft
+        type: dropdown

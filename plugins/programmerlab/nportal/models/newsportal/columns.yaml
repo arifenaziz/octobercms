@@ -1,0 +1,34 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+        sortable: true
+        width: 10px
+    name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: true
+    country:
+        label: Country
+        type: text
+        searchable: true
+        sortable: true
+        width: 200px
+    type:
+        label: Type
+        type: text
+        searchable: true
+        sortable: true
+        width: 200px
+    created_at:
+        label: 'Created At'
+        type: date
+        sortable: true
+        width: 300px
+    updated_at:
+        label: 'Updated At'
+        type: date
+        sortable: true
+        width: 300px

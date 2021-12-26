@@ -1,0 +1,181 @@
+title = "Image Gallery"
+url = "/image-gallery"
+layout = "default"
+description = "Image gallery page"
+is_hidden = 0
+==
+<?php
+use ProgrammerLab\Nportal\Models\ImageGallery;
+
+function onStart(){
+  $this['iGalleries'] = ImageGallery::where('status', 'published')->orderBy('created_at', 'desc')->select('id','title','image')->paginate(17);
+}
+?>
+==
+
+
+<div class="row">
+    <!-- Main Content -->
+    <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+        <!-- page header -->
+        <div class="row bk-white m-t-5">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <div class="box">
+                <div class="box-header">
+                    <h4>ছবি গ্যালারী</h4>
+                </div>
+              </div>
+            </div>
+        </div>
+        <!-- ./page header -->
+
+        <!-- main content -->
+        <div class="row m-t-5 im-slider">
+            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 bk-white-n">
+              <div class="box-slider">
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                  <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                  <div class="item active">
+                    <a title="{{ iGalleries[0].title }}" href="{{ iGalleries[0].image | media }}" target="_blank">
+                      <img class="img-responsive" src="{{ iGalleries[0].image | media | resize(570,415, { mode: 'crop', quality: '80' }) }}" alt="{{ iGalleries[0].title }}">
+                    </a>
+                    <div class="carousel-caption">
+                      <a title="" href="{{ iGalleries[0].image | media | resize(570,415, { mode: 'crop', quality: '80' }) }}" target="_blank">
+                        <h4>
+                          {{ iGalleries[0].title }}
+                        </h4>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <a title="{{ iGalleries[1].title }}" href="{{ iGalleries[1].image | media }}" target="_blank">
+                      <img class="img-responsive" src="{{ iGalleries[1].image | media | resize(570,415, { mode: 'crop', quality: '80' }) }}" alt="{{ iGalleries[1].title }}" width="100%" height="355">
+                    </a>
+                    <div class="carousel-caption">
+                      <a href="{{ iGalleries[1].image | media }}" target="_blank">
+                        <h4>
+                          {{ iGalleries[1].title }}
+                        </h4>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div class="item">
+                    <a title="{{ iGalleries[2].title }}" href="{{ iGalleries[2].image | media }}" target="_blank">
+                      <img class="img-responsive" src="{{ iGalleries[2].image | media | resize(570,415, { mode: 'crop', quality: '80' }) }}" alt="{{ iGalleries[2].title }}" width="100%" height="355">
+                    </a>
+                    <div class="carousel-caption">
+                      <a href="{{ iGalleries[2].image | media }}" target="_blank">
+                        <h4>
+                          {{ iGalleries[2].title }}
+                        </h4>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                  <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                  <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                  <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                  <span class="sr-only">Next</span>
+                </a>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+
+                <div class="row">
+                    <div class="col-xs-12 col-sm-4 col-md-12 col-lg-12 bk-white sn-galley">
+                        <a title="{{ iGalleries[3].title }}" href="{{ iGalleries[3].image | media }}" target="_blank">
+                          <img class="img-responsive" src="{{ iGalleries[3].image | media | resize(282,199, { mode: 'crop', quality: '80' }) }}" alt="{{ iGalleries[3].title }}" width="100%" height="355">
+                          <h4>{{ iGalleries[3].title }}</h4>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="row m-t-5">
+                    <div class="col-xs-12 col-sm-4 col-md-12 col-lg-12 bk-white sn-galley">
+                      <a title="{{ iGalleries[4].title }}" href="{{ iGalleries[4].image | media }}" target="_blank">
+                        <img class="img-responsive" src="{{ iGalleries[4].image | media | resize(282,199, { mode: 'crop', quality: '80' }) }}" alt="{{ iGalleries[4].title }}" width="100%" height="355">
+                        <h4>{{ iGalleries[4].title }}</h4>
+                      </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row m-t-5">
+          {% for i in 5..8 %}
+            {% if iGalleries[i] %}
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 bk-white-n sn-galley">
+                <a title="{{ iGalleries[i].title }}" href="{{ iGalleries[i].image | media }}" target="_blank">
+                  <img class="img-responsive" src="{{ iGalleries[i].image | media | resize(204,163, { mode: 'crop', quality: '80' }) }}" alt="{{ iGalleries[i].title }}">
+                  <h4>{{ iGalleries[i].title }}</h4>
+                </a>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="row m-t-5">
+          {% for i in 9..12 %}
+            {% if iGalleries[i] %}
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 bk-white-n sn-galley">
+              <a title="{{ iGalleries[i].title }}" href="{{ iGalleries[i].image | media }}" target="_blank">
+                <img class="img-responsive" src="{{ iGalleries[i].image | media | resize(204,163, { mode: 'crop', quality: '80' }) }}" alt="{{ iGalleries[i].title }}" width="100%" height="355">
+                <h4>{{ iGalleries[i].title }}</h4>
+              </a>
+            </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="row m-t-5">
+          {% for i in 13..16 %}
+            {% if iGalleries[i] %}
+            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 bk-white-n sn-galley">
+              <a title="{{ iGalleries[i].title }}" href="{{ iGalleries[i].image | media }}" target="_blank">
+                <img class="img-responsive" src="{{ iGalleries[i].image | media | resize(204,163, { mode: 'crop', quality: '80' }) }}" alt="{{ iGalleries[i].title }}" width="100%" height="355">
+                <h4>{{ iGalleries[i].title }}</h4>
+              </a>
+            </div>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <!-- ./main content -->
+
+        <!-- pagination -->
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+              <nav class="pagination-warp clearfix pull-right">
+                {{ iGalleries.render|raw }}
+              </nav>
+            </div>
+        </div>
+        <!-- pagination -->
+
+    </div>
+    <!-- ./Main Content -->
+
+    <!-- sidebar -->
+    <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+        <div class="row">
+
+        </div>
+    </div>
+    <!-- ./sidebar -->
+</div>

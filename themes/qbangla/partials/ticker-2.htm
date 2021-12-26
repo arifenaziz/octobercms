@@ -1,0 +1,26 @@
+==
+<?php
+use ProgrammerLab\Nportal\Models\Article;
+function onStart(){
+  $this['headeLines'] = Article::orderBy('published_at', 'desc')
+  ->where('is_breaking', 1)->select('id','title')->take(6)->get();
+}
+?>
+==
+
+<div class="row m-t-5 bk-white news-ticker hidden-print">
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 p-l-0">
+    <div class="breakingNews gb-bk" id="bn1">
+    	<div class="bn-title"><h2>শিরোনাম</h2></div>
+        <ul>
+          {% for hl in headeLines %}
+        	<li>
+            <a href="{{ url('news', hl.id) }}">
+              {{hl.title}}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+    </div>
+  </div>
+</div>

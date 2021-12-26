@@ -1,0 +1,149 @@
+<?php Block::put('breadcrumb') ?>
+    <ul>
+        <li><a href="<?= Backend::url('programmerlab/nportal/articles') ?>">Articles</a></li>
+        <li><?= e($this->pageTitle) ?></li>
+    </ul>
+<?php Block::endPut() ?>
+
+<?php if (!$this->fatalError): ?>
+
+    <?= Form::open(['class' => 'layout']) ?>
+
+        <div class="layout-row">
+          <div class="row">
+            <div class="col-md-9 col-lg-9">
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <?= $this->formRenderField("hanger") ?>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <?= $this->formRenderField("short_title") ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <?= $this->formRenderField("title") ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 col-lg-6">
+                        <?= $this->formRenderField("shoulder") ?>
+                    </div>
+                    <div class="col-md-6 col-lg-6">
+                        <?= $this->formRenderField("slug") ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <?= $this->formRenderField("content") ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <?= $this->formRenderField("excerpt") ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <?= $this->formRenderField("keywords") ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-2 col-lg-2">
+                        <?= $this->formRenderField("author_img") ?>
+                    </div>
+                    <div class="col-md-5 col-lg-5">
+                        <?= $this->formRenderField("author_name") ?>
+                    </div>
+                    <div class="col-md-5 col-lg-5">
+                        <?= $this->formRenderField("author_designation") ?>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Left Side ========================================== -->
+            <div class="col-md-3 col-lg-3">
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <?= $this->formRenderField("status") ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <?= $this->formRenderField("published_at") ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <?= $this->formRenderField("is_breaking") ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <?= $this->formRenderField("comment_box") ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <?= $this->formRenderField("categories") ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <?= $this->formRenderField("is_feature_img") ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <?= $this->formRenderField("feature_img") ?>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 col-lg-12">
+                        <?= $this->formRenderField("caption") ?>
+                    </div>
+                </div>
+            </div>
+            <!-- ./ Left Side ========================================== -->
+          </div>
+        </div>
+
+        <div class="form-buttons">
+            <div class="loading-indicator-container">
+                <button
+                    type="submit"
+                    data-request="onSave"
+                    data-request-data="redirect:0"
+                    data-hotkey="ctrl+s, cmd+s"
+                    data-load-indicator="<?= e(trans('backend::lang.form.saving')) ?>"
+                    class="btn btn-primary">
+                    <?= e(trans('backend::lang.form.save')) ?>
+                </button>
+                <button
+                    type="button"
+                    data-request="onSave"
+                    data-request-data="close:1"
+                    data-hotkey="ctrl+enter, cmd+enter"
+                    data-load-indicator="<?= e(trans('backend::lang.form.saving')) ?>"
+                    class="btn btn-default">
+                    <?= e(trans('backend::lang.form.save_and_close')) ?>
+                </button>
+                <button
+                    type="button"
+                    class="oc-icon-trash-o btn-icon danger pull-right"
+                    data-request="onDelete"
+                    data-load-indicator="<?= e(trans('backend::lang.form.deleting')) ?>"
+                    data-request-confirm="<?= e(trans('backend::lang.form.confirm_delete')) ?>">
+                </button>
+
+                <span class="btn-text">
+                    <?= e(trans('backend::lang.form.or')) ?> <a href="<?= Backend::url('programmerlab/nportal/articles') ?>"><?= e(trans('backend::lang.form.cancel')) ?></a>
+                </span>
+            </div>
+        </div>
+    <?= Form::close() ?>
+
+<?php else: ?>
+    <p class="flash-message static error"><?= e(trans($this->fatalError)) ?></p>
+    <p><a href="<?= Backend::url('programmerlab/nportal/articles') ?>" class="btn btn-default"><?= e(trans('backend::lang.form.return_to_list')) ?></a></p>
+<?php endif ?>

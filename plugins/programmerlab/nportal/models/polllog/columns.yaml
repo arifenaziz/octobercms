@@ -1,0 +1,22 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+        sortable: true
+        width: 10px
+    vote_count:
+        label: Vote
+        type: number
+        searchable: true
+        sortable: true
+    created_at:
+        label: 'Created At'
+        type: date
+        sortable: true
+        width: 150px
+    updated_at:
+        label: 'Updated At'
+        type: date
+        sortable: true
+        width: 150px

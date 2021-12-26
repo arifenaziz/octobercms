@@ -1,0 +1,85 @@
+==
+<?php
+use ProgrammerLab\Nportal\Models\Article;
+use ProgrammerLab\Nportal\Models\Category;
+use ProgrammerLab\Nportal\Models\Settings;
+function onStart(){
+  //Logo =======================================================================
+  $this['headerLogo'] = Settings::get('main_logo');
+
+  // column ====================================================================
+  //$catID = 4;
+  //$selectedCatID = Category::find($catID);
+  //$this['colArticle'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'feature_img')->take(1)->get();
+
+  // Interv ====================================================================
+  // $catID = 5;
+  // $selectedCatID = Category::find($catID);
+  // $this['invArticle'] = $selectedCatID->articles()->where('status', 'published')->orderBy('created_at', 'desc')->select('id', 'title', 'feature_img')->take(1)->get();
+}
+?>
+==
+<div class="row m-t-5">
+    <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 bk-white hidden-xs">
+      <div class="logo" style="<!-- height: 65px; -->">
+        <a href="{{ url('/') }}">
+          <img src="{{ headerLogo ? headerLogo | media : 'assets/images/logo.png' | theme }}" alt="Logo">
+        </a>
+      </div>
+    </div>
+    <!-- Colum -->
+    <!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 bk-white border-r sm-b-margin hidden-print">
+        <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <a href="{{ url('/news', colArticle[0].id ) }}" title="{{ colArticle[0].title }}">
+                <img src="{{ colArticle[0].feature_img | media | resize(105,65, { mode: 'crop', quality: '80' }) }}" alt="{{ colArticle[0].title }}" width="105">
+              </a>
+            </div>
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+              <a href="{{ url('/news', colArticle[0].id ) }}">
+                <h4 class="header-text">{{ colArticle[0].title }}</h4>
+              </a>
+            </div>         
+
+        </div>
+    </div> -->
+    <!-- Colum -->
+
+    <!-- Interview -->
+    <!-- <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4 bk-white hidden-print">
+      <div class="row">
+          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <a href="{{ url('/news', invArticle[0].id ) }}" title="{{ invArticle[0].title }}">
+              <img src="{{ invArticle[0].feature_img | media | resize(105,65, { mode: 'crop', quality: '80' }) }}" alt="{{ invArticle[0].title }}" width="105">
+            </a>
+          </div>
+          <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <a href="{{ url('/news', invArticle[0].id ) }}">
+              <h4 class="header-text">{{ invArticle[0].title }}</h4>
+            </a>
+          </div>
+      </div>
+    </div> -->
+    <!-- ./Interview -->
+
+
+
+    <!-- google ad -->
+    <!-- <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">            
+            Header
+            <ins class="adsbygoogle" 
+            style="display:inline-block;width:100%;height:125px"
+            data-ad-client="ca-pub-3244995337542395"
+            data-ad-slot="2919665204"
+            data-full-width-responsive="true"
+            >
+            </ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>        
+    </div> -->
+    <!-- ./google ad -->
+
+</div>

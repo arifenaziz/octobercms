@@ -1,0 +1,27 @@
+fields:
+    sidebars:
+        label: Sidebar
+        oc.commentPosition: ''
+        prompt: 'Add new item'
+        span: right
+        type: repeater
+        form:
+            fields:
+                title:
+                    label: Title
+                    oc.commentPosition: ''
+                    span: left
+                    required: 1
+                    type: text
+                url:
+                    label: Link
+                    oc.commentPosition: ''
+                    span: right
+                    type: text
+    title:
+        label: Page Title
+        oc.commentPosition: ''
+        span: left
+        disabled: 0
+        hidden: 0
+        type: text

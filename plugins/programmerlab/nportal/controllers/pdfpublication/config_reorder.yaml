@@ -1,0 +1,4 @@
+title: PdfPublication
+modelClass: ProgrammerLab\Nportal\Models\PdfModel
+toolbar:
+    buttons: reorder_toolbar

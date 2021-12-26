@@ -1,0 +1,29 @@
+fields:
+    u_name:
+        label: Name
+        oc.commentPosition: ''
+        span: left
+        required: 0
+        type: text
+    u_message:
+        label: Message
+        span: right
+        size: giant
+        oc.commentPosition: ''
+        type: textarea
+    u_email:
+        label: Email
+        oc.commentPosition: ''
+        span: left
+        required: 0
+        type: text
+    u_phone:
+        label: 'Phone No'
+        oc.commentPosition: ''
+        span: left
+        type: text
+    u_sub:
+        label: Subject
+        oc.commentPosition: ''
+        span: left
+        type: text

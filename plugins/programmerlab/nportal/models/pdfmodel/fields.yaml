@@ -1,0 +1,22 @@
+fields:
+    title:
+        label: Title
+        oc.commentPosition: ''
+        span: left
+        type: text
+    status:
+        label: Dropdown
+        span: left
+        oc.commentPosition: ''
+        options:
+            published: Published
+            unpublished: Unpublished
+            draft: Draft
+        type: dropdown
+    file:
+        label: 'File Upload'
+        span: left
+        oc.commentPosition: ''
+        mode: file
+        required: 1
+        type: mediafinder

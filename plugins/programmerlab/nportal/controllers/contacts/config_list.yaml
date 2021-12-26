@@ -1,0 +1,12 @@
+title: Contacts
+modelClass: ProgrammerLab\Nportal\Models\Contact
+list: $/programmerlab/nportal/models/contact/columns.yaml
+recordUrl: 'programmerlab/nportal/contacts/preview/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: '30'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

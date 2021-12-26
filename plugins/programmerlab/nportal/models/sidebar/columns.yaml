@@ -1,0 +1,4 @@
+columns:
+    title:
+        label: Sidebar
+        type: text

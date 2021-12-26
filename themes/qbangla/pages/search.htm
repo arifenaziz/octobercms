@@ -1,0 +1,29 @@
+title = "সার্চ"
+url = "/search/:q?"
+layout = "default"
+description = "search"
+is_hidden = 0
+==
+<?php
+use ProgrammerLab\Nportal\Models\Article;
+
+	function onInit(){
+		$q = $this->param('q');
+		$this['q'] = $q;
+		$this['articles'] = Article::SearchByKeyword($q)->take(15)->paginate(20);
+	}
+
+	function onSubmit(){
+		$q   = post('q');
+		$this['articles'] = Article::SearchByKeyword($q)->take(15)->paginate(20);
+	}
+?>
+==
+<form
+	method="post"
+	data-request="onSubmit"
+	data-request-update="'search-list': '#result'">
+</form>
+<div id="result">
+	{% partial "search-list" articles=articles %}
+</div>

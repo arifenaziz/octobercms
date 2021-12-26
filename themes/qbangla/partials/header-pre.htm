@@ -1,0 +1,69 @@
+==
+<?php
+use EasyBanglaDate\Types\BnDateTime;
+use Carbon\Carbon;
+function onStart(){
+    $dt = Carbon::now();
+    $bongabda = new BnDateTime($dt, new DateTimeZone('Asia/Dhaka'));
+        $this['today'] = $bongabda->getDateTime()->format('l jS F Y');
+  }
+?>
+==
+<div class="row bk-blue hidden-print" id="pre-header">
+  <!-- Date -->
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 dt">
+    <div class="date sm-dt visible-xs">
+       {{ today }} |
+    </div>
+    <div class="date hidden-xs">
+       {{ today }} | <span>বাংলাদেশ সময়&nbsp:&nbsp</span><iframe src="https://free.timeanddate.com/clock/i5tkmtpo/n73/tlbd/fs12/fcfff/tct/pct/ftb/ts1" frameborder="0" width="66" height="13" allowTransparency="true"></iframe> | <span>কাতার সময়:</span><iframe src="https://free.timeanddate.com/clock/i5tkmzye/n8/tlqa/fs12/fcfff/tct/pct/avb/ftb/th2/ts1" frameborder="0" width="55" height="13" allowTransparency="true"></iframe>
+    </div>
+  </div>
+  <!-- ./date -->
+
+
+
+  <!-- Social button -->
+  <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 sbtn-sm">
+    <div class="social-button">
+      <ul>
+        <li class="social-s">
+          <form class="form-inline"
+          method="post"
+          data-request="onSubmit">
+            <input name="q" class="form-control form-control-sm search-box" type="text" placeholder="অনুসন্ধান...">
+            <button class="btn btn-success-outline btn-search btn-sm" type="submit"><i class="fa fa-search"></i></button>
+          </form>
+        </li>
+        <li class="hidden-xs hidden-sm social-bn"><a href="https://www.facebook.com/GBangla2018/"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a></li>
+        <!-- <li class="hidden-xs hidden-sm"><a href=""><i class="fa fa-lg fa-twitter" aria-hidden="true"></i></a></li> -->
+        <li class="hidden-xs hidden-sm social-bn"><a href="https://twitter.com/editorgulfbang1"><i class="fa fa-lg fa-twitter" aria-hidden="true"></i></a></li>
+        <li class="hidden-xs hidden-sm social-bn"><a href="https://www.youtube.com/channel/UCC2KWDemBkeUXovPdfO11YA"><i class="fa fa-lg fa-youtube" aria-hidden="true"></i></a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- ./Social button -->
+</div>
+
+
+      <!--google ad -->
+      <!-- <div class="row m-t-5" >
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 bk-white-n sm-b-margin">
+          <div class="box-ad text-center" style="height:100px !important">
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>                
+            Home New 1
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle top_add_master"
+                 style="display:block;width:100%;height:100px;"
+                 data-ad-client="ca-pub-3244995337542395"
+                 data-ad-slot="6924803443"
+                 data-full-width-responsive="true"
+                 >
+                 </ins>
+            <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+          </div>
+        </div>
+      </div> -->
+      <!-- ./google ad -->

@@ -1,0 +1,55 @@
+<div class="row">
+	<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9">
+		<div class="row m-t-5">
+					{% for article in articles %}
+					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 m-t-5 bk-white-n">
+							<div class="cat-news-header">
+									<a href="{{ url('/news', article.id) }}">
+											<h3>{{ article.short_title }}</h3>
+									</a>
+									<div class="cat-date">
+										<i class="fa fa-clock-o" aria-hidden="true"></i> <span>{{ article.getBanglaDate() }}</span>
+									</div>
+							</div>
+
+							<div class="row cat-news-content">
+									<div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+											<a href="{{ url('/news', article.id) }}">
+													<img class="img-responsive" src="{{ article.feature_img | media | resize(122,75, { mode: 'crop', quality: '80' }) }}" alt="{{ article.short_title }}">
+											</a>
+									</div>
+									<div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+											<a href="{{ url('/news', article.id) }}">
+													<p class="cat-news-content">
+															{{ ar.excerpt }}
+													</p>
+											</a>
+									</div>
+							</div>
+					</div>
+					{% endfor %}
+			</div>
+
+		<div class="row m-t-1 m-b-1">
+			<!--================================== category pagination ============-->
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+				<nav class="pagination-warp clearfix pull-right">
+					{{ articles.render|raw }}
+				</nav>
+			</div>
+			<!-- ./ category pagination =========-->
+		</div>
+	</div>
+
+	<!--=================================add-section===========================-->
+	<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
+		<div class="row">
+			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+			</div>
+		</div>
+	</div>
+
+	<!--=================================add-section===========================-->
+
+</div>

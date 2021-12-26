@@ -1,0 +1,28 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+        width: 10px
+    u_name:
+        label: Name
+        type: text
+        searchable: true
+        sortable: true
+        width: 100px
+    u_email:
+        label: Email
+        type: text
+        searchable: true
+        sortable: true
+        width: 200px
+    u_sub:
+        label: Subject
+        type: text
+        searchable: true
+        sortable: true
+    created_at:
+        label: Time
+        type: datetime
+        sortable: true
+        width: 300px

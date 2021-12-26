@@ -1,0 +1,17 @@
+fields:
+    display_name:
+        label: 'Display Name'
+        oc.commentPosition: ''
+        span: left
+        type: text
+    slug:
+        label: Slug
+        oc.commentPosition: ''
+        span: left
+        type: text
+    description:
+        label: Description
+        size: large
+        oc.commentPosition: ''
+        span: left
+        type: textarea

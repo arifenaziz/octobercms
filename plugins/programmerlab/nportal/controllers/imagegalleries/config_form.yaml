@@ -1,0 +1,10 @@
+name: ImageGalleries
+form: $/programmerlab/nportal/models/imagegallery/fields.yaml
+modelClass: ProgrammerLab\Nportal\Models\ImageGallery
+defaultRedirect: programmerlab/nportal/imagegalleries
+create:
+    redirect: 'programmerlab/nportal/imagegalleries/update/:id'
+    redirectClose: programmerlab/nportal/imagegalleries
+update:
+    redirect: programmerlab/nportal/imagegalleries
+    redirectClose: programmerlab/nportal/imagegalleries

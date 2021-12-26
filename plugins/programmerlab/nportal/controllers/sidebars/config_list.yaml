@@ -1,0 +1,11 @@
+list: $/programmerlab/nportal/models/sidebar/columns.yaml
+modelClass: ProgrammerLab\Nportal\Models\Sidebar
+title: Sidebars
+noRecordsMessage: 'backend::lang.list.no_records'
+showSetup: true
+showCheckboxes: true
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'
+recordUrl: 'programmerlab/nportal/sidebars/update/:id'

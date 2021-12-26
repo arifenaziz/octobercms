@@ -1,0 +1,42 @@
+tabs:
+    fields:
+        main_logo:
+            label: Logo
+            type: mediafinder
+            mode: image
+            span: auto
+            tab: Logo
+            comment: 'Please upload 193px width and 64px height max. Note : low size image will be good for loding website.'
+        footer_logo:
+            label: 'Footer Logo'
+            type: mediafinder
+            mode: image
+            span: auto
+            tab: Logo
+            comment: 'Please upload 193px width and 64px height max. Note : low size image will be good for loding website.'
+        address:
+            label: 'Address'
+            span: auto
+            type: richeditor
+            toolbarButtons: bold|italic
+            tab: Contact
+        facebook:
+            label: Facebook URL
+            span: left
+            type: text
+            tab: Social
+        twitter:
+            label: Twitter URL
+            span: right
+            type: text
+            tab: Social
+        google_plus:
+           label: Google Plus URL
+           span: left
+           type: text
+           tab: Social
+        you_tube:
+           label: Youtube URL
+           span: right
+           type: text
+           tab: Social

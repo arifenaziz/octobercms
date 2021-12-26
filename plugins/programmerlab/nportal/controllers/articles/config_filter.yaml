@@ -1,0 +1,22 @@
+# ===================================
+# Filter Scope Definitions
+# ===================================
+
+scopes:
+
+    status:
+        label: Status
+        type: group
+        conditions: status in (:filtered)
+        options:
+            published: Published
+            unpublished: Unpublished
+            drafted: Drafted
+    category:
+        label: Category
+        modelClass: ProgrammerLab\Nportal\Models\Category
+        nameFrom: display_name
+    published_at:
+        label: Published At
+        type: daterange
+        conditions: published_at >= ':before' AND published_at <= ':after'

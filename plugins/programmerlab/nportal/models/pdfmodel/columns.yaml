@@ -1,0 +1,27 @@
+columns:
+    id:
+        label: id
+        type: number
+    title:
+        label: title
+        type: text
+    file:
+        label: file
+        type: text
+    status:
+        label: status
+        type: text
+    created_by:
+        label: created_by
+        type: number
+        path: ~/plugins/programmerlab/nportal/models/videogallery/_created_by_column.htm
+    updated_by:
+        label: updated_by
+        type: number
+        path: ~/plugins/programmerlab/nportal/models/videogallery/_updated_by_column.htm
+    created_at:
+        label: created_at
+        type: datetime
+    updated_at:
+        label: updated_at
+        type: datetime

@@ -1,0 +1,38 @@
+columns:
+    id:
+        label: ID
+        type: number
+        searchable: true
+        sortable: true
+        width: 10px
+    title:
+        label: Title/Organization
+        type: text
+        searchable: true
+        sortable: true
+    type:
+        label: Type
+        type: text
+        searchable: true
+        sortable: true
+        width: 200px
+    phone_no:
+        label: 'Phone No'
+        type: number
+        searchable: true
+        width: 300px
+    web_address:
+        label: 'Web Address'
+        type: text
+        searchable: true
+        width: 350px
+    created_at:
+        label: 'Created At'
+        type: date
+        sortable: true
+        width: 350px
+    updated_at:
+        label: 'Updated At'
+        type: date
+        sortable: true
+        width: 350px
